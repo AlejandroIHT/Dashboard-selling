@@ -28,7 +28,7 @@ class Http {
 
       return json;
     } catch (error) {
-      console.log('http get method post error', error);
+      console.log('http post method error', error);
       throw Error(error);
     }
   };

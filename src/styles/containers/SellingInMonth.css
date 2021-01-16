@@ -1,0 +1,33 @@
+.SellingInMonth {
+  width: 100%;
+  color: var(--main-color-white);
+  background-color: var(--assent-color-purple);
+  padding: 28px 48px;
+  border-radius: 36px;
+}
+
+.SellingInMonth__borderTop {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-top: 8px;
+}
+
+.SellingInMonth__borderTop--addFav {
+  background-color: var(--main-color-white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: var(--assent-color-purple);
+  font-weight: 600;
+  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.24);
+}
+
+.SellingInMonth__borderTop--move {
+  color: var(--main-color-white);
+  background: none;
+  padding: 4px 8px;
+  border: none;
+}

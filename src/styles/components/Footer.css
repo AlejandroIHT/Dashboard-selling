@@ -1,0 +1,18 @@
+.Footer {
+  width: 100%;
+  padding: 24px 40px 64px 40px;
+}
+
+.Footer__title {
+  color: var(--main-color-primary);
+  font-size: 16px;
+}
+
+.Footer__title i {
+  color: #5e37ff;
+}
+
+.Footer__title__link {
+  color: var(--main-color-primary);
+  font-weight: 600;
+}

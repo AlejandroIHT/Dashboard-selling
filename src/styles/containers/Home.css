@@ -1,0 +1,12 @@
+.Home {
+  width: 100%;
+  padding: 32px 40px;
+}
+
+.col-favProduct {
+  padding-right: 8px !important;
+}
+
+.col-quantitySellChart {
+  padding-left: 8px !important;
+}

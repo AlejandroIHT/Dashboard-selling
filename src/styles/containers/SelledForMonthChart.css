@@ -1,0 +1,29 @@
+.SelledForMonthChart {
+  width: 100%;
+  color: var(--main-color-primary);
+  background-color: var(--main-color-white);
+  padding: 28px 48px 48px 48px;
+  border-radius: 36px;
+}
+
+.SelledForMonthChart__borderTop {
+  height: 56px;
+  color: var(--assent-color-purple);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-top: 8px;
+}
+
+.SelledForMonthChart__borderTop--move {
+  color: var(--assent-color-purple);
+  background: none;
+  padding: 4px 8px;
+  border: none;
+}
+
+.SelledForMonthChart__chart__title {
+  font-size: 22px;
+  font-weight: 600;
+}

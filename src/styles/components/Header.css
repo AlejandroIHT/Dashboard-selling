@@ -1,0 +1,10 @@
+.Header {
+  width: 100%;
+  padding: 24px 40px;
+}
+
+.Header__title {
+  color: var(--main-color-primary);
+  font-size: 32px;
+  font-weight: 700;
+}

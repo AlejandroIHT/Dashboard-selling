@@ -1,0 +1,19 @@
+.ButtonDelete {
+  padding: 10px;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.ButtonDelete.purple {
+  background-color: #7c4dff; 
+}
+
+.ButtonDelete:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.ButtonDelete:hover.purple {
+  background-color: #7c4dff91; 
+}

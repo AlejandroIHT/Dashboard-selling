@@ -1,7 +1,13 @@
 import React from 'react';
+import Layout from '../components/Layout';
+import Home from './Home';
 
 const App = () => {
-  return <h1>Hola mundo!</h1>
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 };
 
 export default App;
