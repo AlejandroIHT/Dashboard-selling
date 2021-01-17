@@ -1,0 +1,12 @@
+{
+  "initialState": {
+    "salesForCategory": [
+      { "sale": 33000000, "category": "games" },
+      { "sale": 32500000, "category": "computer" },
+      { "sale": 11350000, "category": "tools-computer" },
+      { "sale": 17860000, "category": "watch" },
+      { "sale": 65550000, "category": "smartphone" },
+      { "sale": 41555000, "category": "smart tv" }
+    ]
+  }
+}

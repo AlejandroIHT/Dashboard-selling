@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import '../styles/containers/Home.css';
 import { connect } from 'react-redux';
 import Loader from './Loader';
@@ -14,6 +14,53 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
       fetchMainData();
     }
   }, []);
+
+  const dataInBar = {
+    labels: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dic',
+    ],
+    datasets: [
+      {
+        label: 'All Products',
+        data: [],
+        backgroundColor: ['rgba(255, 99, 132, 1)'],
+      },
+    ],
+  };
+
+  const dataInDoughnut = {
+    labels: [
+      'Category 1',
+      'Category 2',
+      'Category 3',
+      'Category 4',
+      'Category 5',
+    ],
+    datasets: [
+      {
+        label: 'Sales for 2020 (M)',
+        data: [3, 2, 5, 3, 1],
+        backgroundColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 205, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(153, 102, 255, 1)',
+        ],
+      },
+    ],
+  };
 
   if (mainDataReducer.loading) {
     return (
@@ -48,7 +95,11 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 </div>
               }
             >
-              <CardChart title="Venta por tipo de producto" typeChart="doughnut" />
+              <CardChart
+                title="Venta por tipo de producto"
+                typeChart="doughnut"
+                dataInDoughnut={dataInDoughnut}
+              />
             </Suspense>
           </div>
         </div>
@@ -61,7 +112,11 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 </div>
               }
             >
-              <CardChart title="Ventas mensuales" typeChart="bar" />
+              <CardChart
+                title="Ventas mensuales"
+                typeChart="bar"
+                dataInBar={dataInBar}
+              />
             </Suspense>
           </div>
           <div className="col-lg-6 col-12">

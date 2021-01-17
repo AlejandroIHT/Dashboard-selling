@@ -5,7 +5,7 @@ import {
 } from '../types/mainDataTypes';
 import http from '../libs/http';
 
-/** Take chart data
+/** Take all data (actions)
  * @async
  */
 export const fetchMainData = () => async (dispatch) => {

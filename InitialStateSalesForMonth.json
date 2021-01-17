@@ -1,0 +1,18 @@
+{
+  "initialState": {
+    "salesForMonth": [
+      { "sale": 10000000, "month": "Jun" },
+      { "sale": 9500000, "month": "Feb" },
+      { "sale": 16350000, "month": "Mar" },
+      { "sale": 18860000, "month": "Apr" },
+      { "sale": 13550000, "month": "May" },
+      { "sale": 10555000, "month": "Jun" },
+      { "sale": 19940000, "month": "Jul" },
+      { "sale": 22630000, "month": "Agu" },
+      { "sale": 20030000, "month": "Sep" },
+      { "sale": 25380000, "month": "Oct" },
+      { "sale": 13510000, "month": "Nov" },
+      { "sale": 31110000, "month": "Dic" }
+    ]
+  }
+}
