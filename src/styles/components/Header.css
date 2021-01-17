@@ -1,5 +1,8 @@
 .Header {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 24px 40px;
 }
 
@@ -7,4 +10,41 @@
   color: var(--main-color-primary);
   font-size: 32px;
   font-weight: 700;
+}
+
+.Header__Buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Header__Buttons__title {
+  color: var(--main-color-primary);
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 16px;
+}
+
+.Header__Buttons__containe--ES,
+.Header__Buttons__containe--EN {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--main-color-primary);
+  background-color: white;
+  border: none;
+  padding: 4px 12px;
+}
+
+.Header__Buttons__containe--ES {
+  border-radius: 8px 0 0 8px;
+}
+
+.Header__Buttons__containe--EN {
+  border-radius: 0 8px 8px 0;
+}
+
+.Header__Buttons__containe--ES.active,
+.Header__Buttons__containe--EN.active {
+  color: var(--main-color-white);
+  background-color: var(--assent-color-purple);
 }

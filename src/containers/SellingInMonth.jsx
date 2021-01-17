@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/containers/SellingInMonth.css';
 import Table from '../components/Table';
+import Search from '../components/Search';
 
 const SellingInMonth = () => {
   const [data, setData] = useState([
@@ -99,9 +100,7 @@ const SellingInMonth = () => {
   return (
     <div className="SellingInMonth">
       <div className="SellingInMonth__borderTop">
-        <button className="SellingInMonth__borderTop--addFav">
-          Añadir a favorito
-        </button>
+        <Search placeholder="Producto..." />
         <button className="SellingInMonth__borderTop--move">
           <i class="fas fa-grip-horizontal"></i>
         </button>
