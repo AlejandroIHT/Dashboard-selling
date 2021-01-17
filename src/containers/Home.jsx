@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import '../styles/containers/Home.css';
 import { connect } from 'react-redux';
-import Loader from './Loader';
+import Loader from '../components/Loader';
 import * as mainDataActions from '../actions/mainDataActions';
 
 const FavProduct = lazy(() => import('./FavProduct'));
@@ -40,23 +40,18 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
   };
 
   const dataInDoughnut = {
-    labels: [
-      'Category 1',
-      'Category 2',
-      'Category 3',
-      'Category 4',
-      'Category 5',
-    ],
+    labels: [],
     datasets: [
       {
-        label: 'Sales for 2020 (M)',
-        data: [3, 2, 5, 3, 1],
+        label: '',
+        data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(255, 205, 86, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 159, 64, 1)',
           'rgba(153, 102, 255, 1)',
+          'rgba(90, 173, 82, 1)',
         ],
       },
     ],

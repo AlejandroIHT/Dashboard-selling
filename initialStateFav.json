@@ -4,38 +4,32 @@
       {
         "id": "00",
         "name": "PlayStation 5",
-        "category": "games",
-        "favorite": true
-      },
-      {
-        "id": "01",
-        "name": "Notebook Asus",
-        "category": "computer",
-        "favorite": true
+        "category": "games"
       },
       {
         "id": "02",
-        "name": "Smartphone Xiaomi",
-        "category": "smartphone",
-        "favorite": true
-      },
-      {
-        "id": "03",
-        "name": "Smartphone iPhone",
-        "category": "smartphone",
-        "favorite": true
-      },
-      {
-        "id": "04",
-        "name": "Nintendo",
-        "category": "games",
-        "favorite": true
+        "name": "Notebook Asus",
+        "category": "computer"
       },
       {
         "id": "05",
+        "name": "Smartphone Xiaomi",
+        "category": "smartphone"
+      },
+      {
+        "id": "07",
+        "name": "Smartphone iPhone",
+        "category": "smartphone"
+      },
+      {
+        "id": "08",
+        "name": "Nintendo",
+        "category": "games"
+      },
+      {
+        "id": "09",
         "name": "SmartTv Sony",
-        "category": "smart tv",
-        "favorite": true
+        "category": "smart tv"
       }
     ]
   }

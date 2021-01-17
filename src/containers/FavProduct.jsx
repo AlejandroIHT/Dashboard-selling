@@ -1,92 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/containers/FavProduct.css';
+import { connect } from 'react-redux';
+import * as favProductActions from '../actions/favProductActions';
 import Table from '../components/Table';
 import ButtonDelete from '../components/ButtonDelete';
+import storage from '../libs/storage';
 
-const FavProduct = () => {
-  const [data, setData] = useState([
-    {
-      id: '00',
-      name: 'Jaime',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '01',
-      name: 'Camilo',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '02',
-      name: 'Jeferson',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '03',
-      name: 'Mario',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '04',
-      name: 'Alejandro',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '05',
-      name: 'Erick',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '06',
-      name: 'Maximiliano',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '07',
-      name: 'Jeferson',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '08',
-      name: 'Mario',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '09',
-      name: 'Alejandro',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '10',
-      name: 'Erick',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-    {
-      id: '11',
-      name: 'Maximiliano',
-      lastName: 'Pedro',
-      category: 'nerd',
-    },
-  ]);
+const FavProduct = ({ favProductReducer, fetchFavProductData }) => {
+  const [data, setData] = useState([]);
   const columns = [
     {
-      name: 'Name',
-      selector: 'name',
+      name: 'Id',
+      selector: 'id',
       sortable: true,
     },
     {
-      name: 'Last name',
-      selector: 'lastName',
+      name: 'Name',
+      selector: 'name',
       sortable: true,
     },
     {
@@ -96,14 +26,43 @@ const FavProduct = () => {
       right: true,
     },
     {
-      cell: () => (
-        <ButtonDelete color="purple">
-          <i class="fas fa-trash-alt"></i>
+      cell: (row) => (
+        <ButtonDelete
+          color="purple"
+          title={row.id}
+          handleClick={handleClickDeleteFavProduct}
+        >
+          <i className="fas fa-trash-alt" title={row.id}></i>
         </ButtonDelete>
       ),
       button: true,
     },
   ];
+
+  useEffect(() => {
+    const response = storage.instance.get('favProducts');
+    if (response) {
+      setData(response);
+      return;
+    }
+
+    if (favProductReducer.data.productFav.length === 0) {
+      fetchFavProductData();
+      return;
+    }
+  }, []);
+  useEffect(() => {
+    if (favProductReducer.data.productFav.length !== 0 && data.length === 0) {
+      setData(favProductReducer.data.productFav);
+      storage.instance.post('favProducts', favProductReducer.data.productFav);
+    }
+  }, [favProductReducer.data.productFav]);
+
+  const handleClickDeleteFavProduct = (e) => {
+    const elements = data.filter((item) => item.id !== e.target.title);
+    setData(elements);
+    storage.instance.post('favProducts', elements);
+  };
 
   return (
     <div className="FavProduct">
@@ -122,4 +81,8 @@ const FavProduct = () => {
   );
 };
 
-export default FavProduct;
+const mapStateToProps = ({ favProductReducer }) => {
+  return { favProductReducer };
+};
+
+export default connect(mapStateToProps, favProductActions)(FavProduct);

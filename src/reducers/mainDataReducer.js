@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
+/** Conect reducer and actions for Main Data */
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_MAINDATA:

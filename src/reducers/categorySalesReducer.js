@@ -1,30 +1,30 @@
 import {
-  LOADING_SALES_FOR_MONTH,
-  ERROR_SALES_FOR_MONTH,
-  GET_SALES_FOR_MONTH,
-} from '../types/salesForMonthTypes';
+  LOADING_CATEGORY_SALES,
+  ERROR_CATEGORY_SALES,
+  GET_CATEGORY_SALES,
+} from '../types/categorySalesTypes';
 
 const INITIAL_STATE = {
   data: {
-    salesForMonth: [],
+    salesForCategory: [],
   },
   loading: false,
   error: null,
 };
 
-/** Conect reducer and actions for Sales for month */
+/** Conect reducer and actions for Category for Sales */
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_SALES_FOR_MONTH:
+    case GET_CATEGORY_SALES:
       return {
         ...state,
         data: action.payload,
         loading: false,
         error: null,
       };
-    case LOADING_SALES_FOR_MONTH:
+    case LOADING_CATEGORY_SALES:
       return { ...state, loading: true, error: null };
-    case ERROR_SALES_FOR_MONTH:
+    case ERROR_CATEGORY_SALES:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;

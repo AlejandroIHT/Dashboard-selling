@@ -1,4 +1,4 @@
-.CardChart {
+.CardChartComponent {
   width: 100%;
   color: var(--main-color-primary);
   background-color: var(--main-color-white);
@@ -6,7 +6,7 @@
   border-radius: 36px;
 }
 
-.CardChart__borderTop {
+.CardChartComponent__borderTop {
   height: 56px;
   color: var(--assent-color-purple);
   display: flex;
@@ -16,14 +16,14 @@
   padding-top: 8px;
 }
 
-.CardChart__borderTop--move {
+.CardChartComponent__borderTop--move {
   color: var(--assent-color-purple);
   background: none;
   padding: 4px 8px;
   border: none;
 }
 
-.CardChart__chart__title {
+.CardChartComponent__chart__title {
   font-size: 22px;
   font-weight: 600;
 }

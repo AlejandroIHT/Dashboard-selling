@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/containers/CardChart.css';
 import { connect } from 'react-redux';
 import * as saleForMonthActions from '../actions/saleForMonthActions';
-import BarChart from '../components/BarChart';
-import DoughnutChart from '../components/DoughnutChart';
-import Loader from './Loader';
+import * as categorySalesActions from '../actions/categorySalesActions';
+import CardChartComponent from '../components/CardChartComponent';
+
+const { fetchSalesForMonthData } = saleForMonthActions;
+const { fetchcategorySalesData } = categorySalesActions;
 
 const CardChart = ({
   title,
@@ -13,16 +14,32 @@ const CardChart = ({
   dataInDoughnut,
   salesForMonthReducer,
   fetchSalesForMonthData,
+  categorySalesReducer,
+  fetchcategorySalesData,
 }) => {
   const [dataBar, setDataBar] = useState(dataInBar);
   const [dataDoughnut, setDataDoughnut] = useState(dataInDoughnut);
 
-  const addInState = () => {
+  const addInStateBar = () => {
     const allSales = dataInBar.datasets.slice();
     allSales[0].data = salesForMonthReducer.data.salesForMonth.map(
       (item) => item.sale
     );
     setDataBar({ ...dataBar, datasets: allSales });
+  };
+
+  const addInStateDoughnut = () => {
+    const allSales = dataInDoughnut.datasets.slice();
+    allSales[0].data = categorySalesReducer.data.salesForCategory.map(
+      (item) => item.sale
+    );
+    const typeLabels = categorySalesReducer.data.salesForCategory.map(
+      (item) => item.category
+    );
+    setDataDoughnut({
+      labels: typeLabels,
+      datasets: allSales,
+    });
   };
 
   useEffect(() => {
@@ -35,50 +52,52 @@ const CardChart = ({
       };
       get();
     }
-  }, [dataBar]);
+    if (
+      typeChart === 'doughnut' &&
+      categorySalesReducer.data.salesForCategory.length === 0
+    ) {
+      const get = async () => {
+        await fetchcategorySalesData();
+      };
+      get();
+    }
+  }, [dataBar, dataDoughnut]);
 
   useEffect(() => {
     if (
       typeChart === 'bar' &&
       salesForMonthReducer.data.salesForMonth.length !== 0
     )
-      addInState();
+      addInStateBar();
   }, [salesForMonthReducer.data.salesForMonth]);
 
-  if (salesForMonthReducer.loading) {
-    return (
-      <div className="CardChart">
-        <div className="CardChart__borderTop">
-          <h2 className="CardChart__chart__title reset-margin">{title}</h2>
-          <button className="CardChart__borderTop--move">
-            <i class="fas fa-grip-horizontal"></i>
-          </button>
-        </div>
-        <div className="CardChart__chart">
-          <Loader />
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (
+      typeChart === 'doughnut' &&
+      categorySalesReducer.data.salesForCategory.length !== 0
+    )
+      addInStateDoughnut();
+  }, [categorySalesReducer.data.salesForCategory.length]);
 
   return (
-    <div className="CardChart">
-      <div className="CardChart__borderTop">
-        <h2 className="CardChart__chart__title reset-margin">{title}</h2>
-        <button className="CardChart__borderTop--move">
-          <i class="fas fa-grip-horizontal"></i>
-        </button>
-      </div>
-      <div className="CardChart__chart">
-        {typeChart === 'bar' && <BarChart data={dataBar} />}
-        {typeChart === 'doughnut' && <DoughnutChart data={dataDoughnut} />}
-      </div>
-    </div>
+    <CardChartComponent
+      title={title}
+      typeChart={typeChart}
+      salesForMonthReducer={salesForMonthReducer}
+      categorySalesReducer={categorySalesReducer}
+      dataBar={dataBar}
+      dataDoughnut={dataDoughnut}
+    />
   );
 };
 
-const mapStateToProps = ({ salesForMonthReducer }) => {
-  return { salesForMonthReducer };
+const mapStateToProps = ({ salesForMonthReducer, categorySalesReducer }) => {
+  return { salesForMonthReducer, categorySalesReducer };
 };
 
-export default connect(mapStateToProps, saleForMonthActions)(CardChart);
+const mapDispatchToProps = {
+  fetchSalesForMonthData,
+  fetchcategorySalesData,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardChart);
