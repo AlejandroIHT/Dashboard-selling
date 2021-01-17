@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import dataChart from './dataChartReducer';
+import mainDataReducer from './mainDataReducer';
 
 export default combineReducers({
-  dataChart,
+  mainDataReducer,
 });

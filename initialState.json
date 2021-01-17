@@ -1,0 +1,206 @@
+{
+  "initialState": {
+    "product": [
+      {
+        "id": "00",
+        "name": "PlayStation 5",
+        "category": "games",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 3000000, "month": "Jun" },
+          { "sale": 2500000, "month": "Feb" },
+          { "sale": 2350000, "month": "Mar" },
+          { "sale": 2860000, "month": "Apr" },
+          { "sale": 3550000, "month": "May" },
+          { "sale": 1555000, "month": "Jun" },
+          { "sale": 1940000, "month": "Jul" },
+          { "sale": 2630000, "month": "Agu" },
+          { "sale": 2030000, "month": "Sep" },
+          { "sale": 2380000, "month": "Oct" },
+          { "sale": 2510000, "month": "Nov" },
+          { "sale": 3110000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "01",
+        "name": "Xbox",
+        "category": "games",
+        "favorite": false,
+        "salesForMonth": [
+          { "sale": 3020000, "month": "Jun" },
+          { "sale": 2100450, "month": "Feb" },
+          { "sale": 1350000, "month": "Mar" },
+          { "sale": 2260000, "month": "Apr" },
+          { "sale": 1550000, "month": "May" },
+          { "sale": 2535000, "month": "Jun" },
+          { "sale": 1340500, "month": "Jul" },
+          { "sale": 2630000, "month": "Agu" },
+          { "sale": 2830000, "month": "Sep" },
+          { "sale": 2980000, "month": "Oct" },
+          { "sale": 1510000, "month": "Nov" },
+          { "sale": 2110000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "02",
+        "name": "Notebook Asus",
+        "category": "computer",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 1000000, "month": "Jun" },
+          { "sale": 1500000, "month": "Feb" },
+          { "sale": 1350000, "month": "Mar" },
+          { "sale": 1860000, "month": "Apr" },
+          { "sale": 1550000, "month": "May" },
+          { "sale": 2940000, "month": "Jun" },
+          { "sale": 3630000, "month": "Jul" },
+          { "sale": 2430000, "month": "Agu" },
+          { "sale": 2780000, "month": "Sep" },
+          { "sale": 2980000, "month": "Oct" },
+          { "sale": 2110000, "month": "Nov" },
+          { "sale": 3510000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "03",
+        "name": "Mouse Gamer",
+        "category": "tools-computer",
+        "favorite": false,
+        "salesForMonth": [
+          { "sale": 300000, "month": "Jun" },
+          { "sale": 250000, "month": "Feb" },
+          { "sale": 235000, "month": "Mar" },
+          { "sale": 286000, "month": "Apr" },
+          { "sale": 355000, "month": "May" },
+          { "sale": 155500, "month": "Jun" },
+          { "sale": 194000, "month": "Jul" },
+          { "sale": 263000, "month": "Agu" },
+          { "sale": 203000, "month": "Sep" },
+          { "sale": 238000, "month": "Oct" },
+          { "sale": 251000, "month": "Nov" },
+          { "sale": 311000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "04",
+        "name": "SmartWatch",
+        "category": "watch",
+        "favorite": false,
+        "salesForMonth": [
+          { "sale": 500000, "month": "Jun" },
+          { "sale": 350000, "month": "Feb" },
+          { "sale": 635000, "month": "Mar" },
+          { "sale": 786000, "month": "Apr" },
+          { "sale": 355000, "month": "May" },
+          { "sale": 255500, "month": "Jun" },
+          { "sale": 894000, "month": "Jul" },
+          { "sale": 463000, "month": "Agu" },
+          { "sale": 303000, "month": "Sep" },
+          { "sale": 238000, "month": "Oct" },
+          { "sale": 751000, "month": "Nov" },
+          { "sale": 911000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "05",
+        "name": "Smartphone Xiaomi",
+        "category": "smartphone",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 2000000, "month": "Jun" },
+          { "sale": 2560000, "month": "Feb" },
+          { "sale": 2550000, "month": "Mar" },
+          { "sale": 1860000, "month": "Apr" },
+          { "sale": 3150000, "month": "May" },
+          { "sale": 2555000, "month": "Jun" },
+          { "sale": 1140000, "month": "Jul" },
+          { "sale": 3630000, "month": "Agu" },
+          { "sale": 2530000, "month": "Sep" },
+          { "sale": 1380000, "month": "Oct" },
+          { "sale": 2210000, "month": "Nov" },
+          { "sale": 1110000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "06",
+        "name": "Smartphone Samsumg",
+        "category": "smartphone",
+        "favorite": false,
+        "salesForMonth": [
+          { "sale": 3600000, "month": "Jun" },
+          { "sale": 2800000, "month": "Feb" },
+          { "sale": 3350000, "month": "Mar" },
+          { "sale": 3860000, "month": "Apr" },
+          { "sale": 2750000, "month": "May" },
+          { "sale": 1955000, "month": "Jun" },
+          { "sale": 2940000, "month": "Jul" },
+          { "sale": 3630000, "month": "Agu" },
+          { "sale": 3030000, "month": "Sep" },
+          { "sale": 1380000, "month": "Oct" },
+          { "sale": 2710000, "month": "Nov" },
+          { "sale": 3510000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "07",
+        "name": "Smartphone iPhone",
+        "category": "smartphone",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 4600000, "month": "Jun" },
+          { "sale": 3800000, "month": "Feb" },
+          { "sale": 4350000, "month": "Mar" },
+          { "sale": 1860000, "month": "Apr" },
+          { "sale": 2250000, "month": "May" },
+          { "sale": 2955000, "month": "Jun" },
+          { "sale": 1940000, "month": "Jul" },
+          { "sale": 3230000, "month": "Agu" },
+          { "sale": 3930000, "month": "Sep" },
+          { "sale": 4380000, "month": "Oct" },
+          { "sale": 3710000, "month": "Nov" },
+          { "sale": 3910000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "08",
+        "name": "Nintendo",
+        "category": "games",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 6600000, "month": "Jun" },
+          { "sale": 4800000, "month": "Feb" },
+          { "sale": 5350000, "month": "Mar" },
+          { "sale": 3160000, "month": "Apr" },
+          { "sale": 4750000, "month": "May" },
+          { "sale": 3955000, "month": "Jun" },
+          { "sale": 1240000, "month": "Jul" },
+          { "sale": 5630000, "month": "Agu" },
+          { "sale": 4030000, "month": "Sep" },
+          { "sale": 7380000, "month": "Oct" },
+          { "sale": 4710000, "month": "Nov" },
+          { "sale": 5510000, "month": "Dic" }
+        ]
+      },
+      {
+        "id": "09",
+        "name": "SmartTv Sony",
+        "category": "smart tv",
+        "favorite": true,
+        "salesForMonth": [
+          { "sale": 4600000, "month": "Jun" },
+          { "sale": 5800000, "month": "Feb" },
+          { "sale": 3350000, "month": "Mar" },
+          { "sale": 1160000, "month": "Apr" },
+          { "sale": 3750000, "month": "May" },
+          { "sale": 3455000, "month": "Jun" },
+          { "sale": 2940000, "month": "Jul" },
+          { "sale": 3630000, "month": "Agu" },
+          { "sale": 3030000, "month": "Sep" },
+          { "sale": 5380000, "month": "Oct" },
+          { "sale": 4110000, "month": "Nov" },
+          { "sale": 3910000, "month": "Dic" }
+        ]
+      }
+    ]
+  }
+}

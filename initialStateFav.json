@@ -1,0 +1,42 @@
+{
+  "initialState": {
+    "productFav": [
+      {
+        "id": "00",
+        "name": "PlayStation 5",
+        "category": "games",
+        "favorite": true
+      },
+      {
+        "id": "01",
+        "name": "Notebook Asus",
+        "category": "computer",
+        "favorite": true
+      },
+      {
+        "id": "02",
+        "name": "Smartphone Xiaomi",
+        "category": "smartphone",
+        "favorite": true
+      },
+      {
+        "id": "03",
+        "name": "Smartphone iPhone",
+        "category": "smartphone",
+        "favorite": true
+      },
+      {
+        "id": "04",
+        "name": "Nintendo",
+        "category": "games",
+        "favorite": true
+      },
+      {
+        "id": "05",
+        "name": "SmartTv Sony",
+        "category": "smart tv",
+        "favorite": true
+      }
+    ]
+  }
+}
