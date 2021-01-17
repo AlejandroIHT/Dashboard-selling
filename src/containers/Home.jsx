@@ -1,16 +1,11 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import '../styles/containers/Home.css';
 import { connect } from 'react-redux';
-//import FavProduct from './FavProduct';
-//import QuantitySellChart from './QuantitySellChart';
-//import SelledForMonthChart from './SelledForMonthChart';
-//import SellingInMonth from './SellingInMonth';
 import Loader from './Loader';
 import * as mainDataActions from '../actions/mainDataActions';
 
 const FavProduct = lazy(() => import('./FavProduct'));
-const QuantitySellChart = lazy(() => import('./QuantitySellChart'));
-const SelledForMonthChart = lazy(() => import('./SelledForMonthChart'));
+const CardChart = lazy(() => import('./CardChart'));
 const SellingInMonth = lazy(() => import('./SellingInMonth'));
 
 const Home = ({ fetchMainData, mainDataReducer }) => {
@@ -53,7 +48,7 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 </div>
               }
             >
-              <QuantitySellChart />
+              <CardChart title="Venta por tipo de producto" typeChart="doughnut" />
             </Suspense>
           </div>
         </div>
@@ -66,7 +61,7 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 </div>
               }
             >
-              <SelledForMonthChart />
+              <CardChart title="Ventas mensuales" typeChart="bar" />
             </Suspense>
           </div>
           <div className="col-lg-6 col-12">

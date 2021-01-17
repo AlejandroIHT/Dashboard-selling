@@ -1,4 +1,4 @@
-.QuantitySellChart {
+.CardChart {
   width: 100%;
   color: var(--main-color-primary);
   background-color: var(--main-color-white);
@@ -6,7 +6,7 @@
   border-radius: 36px;
 }
 
-.QuantitySellChart__borderTop {
+.CardChart__borderTop {
   height: 56px;
   color: var(--assent-color-purple);
   display: flex;
@@ -16,14 +16,14 @@
   padding-top: 8px;
 }
 
-.QuantitySellChart__borderTop--move {
+.CardChart__borderTop--move {
   color: var(--assent-color-purple);
   background: none;
   padding: 4px 8px;
   border: none;
 }
 
-.QuantitySellChart__chart__title {
+.CardChart__chart__title {
   font-size: 22px;
   font-weight: 600;
 }
