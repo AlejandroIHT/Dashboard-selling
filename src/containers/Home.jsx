@@ -68,66 +68,68 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
   }
 
   return (
-    <div className="Home">
-      <div className="container-fluid pl-0 pr-0">
-        <div className="row mb-4">
-          <div className="col-lg-6 col-12 p-0 col-favProduct">
-            <Suspense
-              fallback={
-                <div className="text-center">
-                  <Loader />
-                </div>
-              }
-            >
-              <FavProduct />
-            </Suspense>
+    <>
+      <div className="Home">
+        <div className="container-fluid pl-0 pr-0">
+          <div className="row mb-4">
+            <div className="col-lg-6 col-12 p-0 col-favProduct">
+              <Suspense
+                fallback={
+                  <div className="text-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <FavProduct />
+              </Suspense>
+            </div>
+            <div className="col-lg-6 col-12 p-0 col-quantitySellChart">
+              <Suspense
+                fallback={
+                  <div className="text-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <CardChart
+                  title="Venta por tipo de producto"
+                  typeChart="doughnut"
+                  dataInDoughnut={dataInDoughnut}
+                />
+              </Suspense>
+            </div>
           </div>
-          <div className="col-lg-6 col-12 p-0 col-quantitySellChart">
-            <Suspense
-              fallback={
-                <div className="text-center">
-                  <Loader />
-                </div>
-              }
-            >
-              <CardChart
-                title="Venta por tipo de producto"
-                typeChart="doughnut"
-                dataInDoughnut={dataInDoughnut}
-              />
-            </Suspense>
-          </div>
-        </div>
-        <div className="row mb-4 pb-4">
-          <div className="col-lg-6 col-12 p-0 col-favProduct">
-            <Suspense
-              fallback={
-                <div className="text-center">
-                  <Loader />
-                </div>
-              }
-            >
-              <CardChart
-                title="Ventas mensuales"
-                typeChart="bar"
-                dataInBar={dataInBar}
-              />
-            </Suspense>
-          </div>
-          <div className="col-lg-6 col-12">
-            <Suspense
-              fallback={
-                <div className="text-center">
-                  <Loader />
-                </div>
-              }
-            >
-              <SellingInMonth />
-            </Suspense>
+          <div className="row mb-4 pb-4">
+            <div className="col-lg-6 col-12 p-0 col-favProduct">
+              <Suspense
+                fallback={
+                  <div className="text-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <CardChart
+                  title="Ventas mensuales"
+                  typeChart="bar"
+                  dataInBar={dataInBar}
+                />
+              </Suspense>
+            </div>
+            <div className="col-lg-6 col-12">
+              <Suspense
+                fallback={
+                  <div className="text-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <SellingInMonth />
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

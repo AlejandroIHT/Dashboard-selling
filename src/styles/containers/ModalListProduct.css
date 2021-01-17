@@ -1,0 +1,26 @@
+.ModalListProduct__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.form-select {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.ModalListProduct__form__btn--send,
+.ModalListProduct__form__btn--cancel {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 24px;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.ModalListProduct__form__btn--send {
+  color: var(--main-color-white);
+  background-color: var(--assent-color-purple);
+}

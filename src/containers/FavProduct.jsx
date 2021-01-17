@@ -5,9 +5,15 @@ import * as favProductActions from '../actions/favProductActions';
 import Table from '../components/Table';
 import ButtonDelete from '../components/ButtonDelete';
 import storage from '../libs/storage';
+import ModalListProduct from './ModalListProduct';
 
-const FavProduct = ({ favProductReducer, fetchFavProductData }) => {
+const FavProduct = ({
+  mainDataReducer,
+  favProductReducer,
+  fetchFavProductData,
+}) => {
   const [data, setData] = useState([]);
+  const [modal, setModal] = useState(false)
   const columns = [
     {
       name: 'Id',
@@ -64,25 +70,30 @@ const FavProduct = ({ favProductReducer, fetchFavProductData }) => {
     storage.instance.post('favProducts', elements);
   };
 
+  const handleClickModal = () => setModal(!modal)
+
   return (
-    <div className="FavProduct">
-      <div className="FavProduct__borderTop">
-        <button className="FavProduct__borderTop--addFav">
-          Añadir a favorito
-        </button>
-        <button className="FavProduct__borderTop--move">
-          <i class="fas fa-grip-horizontal"></i>
-        </button>
+    <>
+      <div className="FavProduct">
+        <div className="FavProduct__borderTop">
+          <button onClick={handleClickModal} className="FavProduct__borderTop--addFav">
+            Añadir a favorito
+          </button>
+          <button className="FavProduct__borderTop--move">
+            <i class="fas fa-grip-horizontal"></i>
+          </button>
+        </div>
+        <div className="FavProduct__table">
+          <Table title="Productos favoritos" data={data} columns={columns} />
+        </div>
       </div>
-      <div className="FavProduct__table">
-        <Table title="Productos favoritos" data={data} columns={columns} />
-      </div>
-    </div>
+      <ModalListProduct handleClick={handleClickModal} isOpen={modal} data={mainDataReducer.mainData.product} />
+    </>
   );
 };
 
-const mapStateToProps = ({ favProductReducer }) => {
-  return { favProductReducer };
+const mapStateToProps = ({ mainDataReducer, favProductReducer }) => {
+  return { mainDataReducer, favProductReducer };
 };
 
 export default connect(mapStateToProps, favProductActions)(FavProduct);
