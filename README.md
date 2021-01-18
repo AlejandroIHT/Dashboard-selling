@@ -8,7 +8,7 @@ Dashboard selling is create with [React.js](https://es.reactjs.org/), and [Redux
 
 You can't create new product.
 
-## Instalation
+## Installation
 
 You will need node and npm installed globally on your machine.
 
