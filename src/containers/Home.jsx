@@ -1,6 +1,8 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import '../styles/containers/Home.css';
 import { connect } from 'react-redux';
+import Board from '../components/Board';
+import Card from '../components/Card';
 import Loader from '../components/Loader';
 import * as mainDataActions from '../actions/mainDataActions';
 
@@ -70,9 +72,9 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
   return (
     <>
       <div className="Home">
-        <div className="container-fluid pl-0 pr-0">
-          <div className="row mb-4">
-            <div className="col-lg-6 col-12 p-0 col-favProduct">
+        <div className="Home__container">
+          <Board id="board-1" className="Home__board">
+            <Card id="card-1" className="Home__card" draggable="true">
               <Suspense
                 fallback={
                   <div className="text-center">
@@ -82,8 +84,11 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
               >
                 <FavProduct />
               </Suspense>
-            </div>
-            <div className="col-lg-6 col-12 p-0 col-quantitySellChart">
+            </Card>
+          </Board>
+
+          <Board id="board-2" className="Home__board">
+            <Card id="card-2" className="Home__card" draggable="true">
               <Suspense
                 fallback={
                   <div className="text-center">
@@ -97,10 +102,11 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                   dataInDoughnut={dataInDoughnut}
                 />
               </Suspense>
-            </div>
-          </div>
-          <div className="row mb-4 pb-4">
-            <div className="col-lg-6 col-12 p-0 col-favProduct">
+            </Card>
+          </Board>
+
+          <Board id="board-3" className="Home__board">
+            <Card id="card-3" className="Home__card" draggable="true">
               <Suspense
                 fallback={
                   <div className="text-center">
@@ -114,8 +120,11 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                   dataInBar={dataInBar}
                 />
               </Suspense>
-            </div>
-            <div className="col-lg-6 col-12">
+            </Card>
+          </Board>
+
+          <Board id="board-4" className="Home__board">
+            <Card id="card-4" className="Home__card" draggable="true">
               <Suspense
                 fallback={
                   <div className="text-center">
@@ -125,8 +134,8 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
               >
                 <SellingInMonth />
               </Suspense>
-            </div>
-          </div>
+            </Card>
+          </Board>
         </div>
       </div>
     </>

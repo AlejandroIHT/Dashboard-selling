@@ -3,6 +3,26 @@
   padding: 32px 40px;
 }
 
+.Home__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.Home__board {
+  width: 50%;
+  min-height: 350px;
+}
+
+.Home__card {
+  background-color: transparent;
+  padding: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
 .col-favProduct {
   padding-right: 8px !important;
 }

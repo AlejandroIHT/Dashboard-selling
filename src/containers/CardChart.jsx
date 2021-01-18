@@ -80,14 +80,14 @@ const CardChart = ({
   }, [categorySalesReducer.data.salesForCategory.length]);
 
   return (
-    <CardChartComponent
-      title={title}
-      typeChart={typeChart}
-      salesForMonthReducer={salesForMonthReducer}
-      categorySalesReducer={categorySalesReducer}
-      dataBar={dataBar}
-      dataDoughnut={dataDoughnut}
-    />
+      <CardChartComponent
+        title={title}
+        typeChart={typeChart}
+        salesForMonthReducer={salesForMonthReducer}
+        categorySalesReducer={categorySalesReducer}
+        dataBar={dataBar}
+        dataDoughnut={dataDoughnut}
+      />
   );
 };
 
