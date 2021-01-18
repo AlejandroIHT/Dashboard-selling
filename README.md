@@ -2,7 +2,7 @@
 
 In this application you can see your products for sale, you can see the sales by type of product in a graph, you can also see the monthly sales of the sum of all the products in a bar graph, you can also see the sales of the current month in a table, where you can search by product name, also sort by row and finally see your favorite products where you can add a new product to favorites or you can delete one. You can also drag the card to change its position. You can also change the language.
 
-Dashboard selling is create with [React.js](https://es.reactjs.org/), and [Redux](https://redux.js.org/). To simulate requests to an API, Json-server was used [JSON Server](https://www.npmjs.com/package/json-server). The list of favorite products is saved in [localstorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage).
+Dashboard selling is create with [React.js](https://es.reactjs.org/), and [Redux](https://redux.js.org/). To simulate requests to an API, was used [JSON Server](https://www.npmjs.com/package/json-server). The list of favorite products is saved in [localstorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage).
 
 ## Conciderations
 
