@@ -13,7 +13,9 @@ const FavProduct = ({
   fetchFavProductData,
 }) => {
   const [data, setData] = useState([]);
-  const [modal, setModal] = useState(false)
+  const [favData, setFavData] = useState([]);
+  const [selectProduct, setSelectProduct] = useState('');
+  const [modal, setModal] = useState(false);
   const columns = [
     {
       name: 'Id',
@@ -57,6 +59,7 @@ const FavProduct = ({
       return;
     }
   }, []);
+  
   useEffect(() => {
     if (favProductReducer.data.productFav.length !== 0 && data.length === 0) {
       setData(favProductReducer.data.productFav);
@@ -64,19 +67,51 @@ const FavProduct = ({
     }
   }, [favProductReducer.data.productFav]);
 
+  useEffect(() => {
+    const dataFav = mainDataReducer.mainData.product.slice();
+    mainDataReducer.mainData.product.forEach((item, index) => {
+      data.forEach((item2) => {
+        if (item.name === item2.name) {
+          dataFav.splice(dataFav.indexOf(item), 1);
+        }
+        return;
+      });
+      return;
+    });
+    setFavData(dataFav);
+    return;
+  }, [data]);
+
   const handleClickDeleteFavProduct = (e) => {
     const elements = data.filter((item) => item.id !== e.target.title);
     setData(elements);
     storage.instance.post('favProducts', elements);
   };
 
-  const handleClickModal = () => setModal(!modal)
+  const handleClickModal = () => setModal(!modal);
+
+  const handleChangeSelectProduct = (e) => setSelectProduct(e.target.value);
+
+  const handleClickAddFav = () => {
+    const addProduct = data.slice();
+    const product = mainDataReducer.mainData.product.filter(
+      (item) => item.name === selectProduct
+    );
+    addProduct.push(product[0]);
+    setData(addProduct);
+    storage.instance.post('favProducts', addProduct);
+    setSelectProduct('');
+    setModal(!modal);
+  };
 
   return (
     <>
       <div className="FavProduct">
         <div className="FavProduct__borderTop">
-          <button onClick={handleClickModal} className="FavProduct__borderTop--addFav">
+          <button
+            onClick={handleClickModal}
+            className="FavProduct__borderTop--addFav"
+          >
             Añadir a favorito
           </button>
           <button className="FavProduct__borderTop--move">
@@ -87,7 +122,14 @@ const FavProduct = ({
           <Table title="Productos favoritos" data={data} columns={columns} />
         </div>
       </div>
-      <ModalListProduct handleClick={handleClickModal} isOpen={modal} data={mainDataReducer.mainData.product} />
+      <ModalListProduct
+        handleChange={handleChangeSelectProduct}
+        handleClick={handleClickModal}
+        handleClickAddFav={handleClickAddFav}
+        isOpen={modal}
+        data={favData}
+        selectProduct={selectProduct}
+      />
     </>
   );
 };

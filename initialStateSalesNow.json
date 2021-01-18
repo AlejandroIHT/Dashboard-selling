@@ -1,0 +1,66 @@
+{
+  "initialState": {
+    "products": [
+      {
+        "id": "00",
+        "name": "PlayStation 5",
+        "category": "games",
+        "salesNow": 2240000
+      },
+      {
+        "id": "01",
+        "name": "Xbox",
+        "category": "games",
+        "salesNow": 3240000
+      },
+      {
+        "id": "02",
+        "name": "Notebook Asus",
+        "category": "computer",
+        "salesNow": 6940000
+      },
+      {
+        "id": "03",
+        "name": "Mouse Gamer",
+        "category": "tools-computer",
+        "salesNow": 2240000
+      },
+      {
+        "id": "04",
+        "name": "SmartWatch",
+        "category": "watch",
+        "salesNow": 3240000
+      },
+      {
+        "id": "05",
+        "name": "Smartphone Xiaomi",
+        "category": "smartphone",
+        "salesNow": 8240000
+      },
+      {
+        "id": "06",
+        "name": "Smartphone Samsumg",
+        "category": "smartphone",
+        "salesNow": 1240000
+      },
+      {
+        "id": "07",
+        "name": "Smartphone iPhone",
+        "category": "smartphone",
+        "salesNow": 8240000
+      },
+      {
+        "id": "08",
+        "name": "Nintendo",
+        "category": "games",
+        "salesNow": 3240000
+      },
+      {
+        "id": "09",
+        "name": "SmartTv Sony",
+        "category": "smart tv",
+        "salesNow": 4240000
+      }
+    ]
+  }
+}
