@@ -1,11 +1,14 @@
 import React from 'react';
 import '../styles/components/Footer.css';
 
-const Footer = () => {
+const Footer = ({ lenguage }) => {
   return (
     <footer className="Footer">
       <p className="Footer__title">
-        Create with <i className="fas fa-heart" /> by {" "}
+        {lenguage === 'en' && 'Create with'}
+        {lenguage === 'es' && 'Creado con'} <i className="fas fa-heart" />{' '}
+        {lenguage === 'en' && 'by'}
+        {lenguage === 'es' && 'por'}{' '}
         <a
           href="https://www.linkedin.com/in/alejandroherrerat/"
           target="_blank"

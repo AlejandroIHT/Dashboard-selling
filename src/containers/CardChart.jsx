@@ -20,6 +20,7 @@ const CardChart = ({
   const [dataBar, setDataBar] = useState(dataInBar);
   const [dataDoughnut, setDataDoughnut] = useState(dataInDoughnut);
 
+  /** Add information in state for bar graph */
   const addInStateBar = () => {
     const allSales = dataInBar.datasets.slice();
     allSales[0].data = salesForMonthReducer.data.salesForMonth.map(
@@ -28,6 +29,7 @@ const CardChart = ({
     setDataBar({ ...dataBar, datasets: allSales });
   };
 
+  /** Add information in state for doughnut graph */
   const addInStateDoughnut = () => {
     const allSales = dataInDoughnut.datasets.slice();
     allSales[0].data = categorySalesReducer.data.salesForCategory.map(
@@ -41,7 +43,7 @@ const CardChart = ({
       datasets: allSales,
     });
   };
-
+  /** Ask for the information depending on whether the bar graph or doughnut graph */
   useEffect(() => {
     if (
       typeChart === 'bar' &&
@@ -63,6 +65,7 @@ const CardChart = ({
     }
   }, [dataBar, dataDoughnut]);
 
+  /** Add the information to the state depending on whether the request has already occurred in redux for bar graph */
   useEffect(() => {
     if (
       typeChart === 'bar' &&
@@ -71,6 +74,7 @@ const CardChart = ({
       addInStateBar();
   }, [salesForMonthReducer.data.salesForMonth]);
 
+  /** Add the information to the state depending on whether the request has already occurred in redux for doughnut graph */
   useEffect(() => {
     if (
       typeChart === 'doughnut' &&
@@ -80,17 +84,18 @@ const CardChart = ({
   }, [categorySalesReducer.data.salesForCategory.length]);
 
   return (
-      <CardChartComponent
-        title={title}
-        typeChart={typeChart}
-        salesForMonthReducer={salesForMonthReducer}
-        categorySalesReducer={categorySalesReducer}
-        dataBar={dataBar}
-        dataDoughnut={dataDoughnut}
-      />
+    <CardChartComponent
+      title={title}
+      typeChart={typeChart}
+      salesForMonthReducer={salesForMonthReducer}
+      categorySalesReducer={categorySalesReducer}
+      dataBar={dataBar}
+      dataDoughnut={dataDoughnut}
+    />
   );
 };
 
+/** state in redux */
 const mapStateToProps = ({ salesForMonthReducer, categorySalesReducer }) => {
   return { salesForMonthReducer, categorySalesReducer };
 };

@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   error: null,
 };
 
-/** Conect reducer and actions for Category for Sales */
+/** Conect reducer and actions for Favorite products */
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_FAV_PRODUCT:

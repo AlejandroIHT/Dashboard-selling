@@ -11,6 +11,7 @@ const FavProduct = ({
   mainDataReducer,
   favProductReducer,
   fetchFavProductData,
+  lenguage,
 }) => {
   const [data, setData] = useState([]);
   const [favData, setFavData] = useState([]);
@@ -47,6 +48,7 @@ const FavProduct = ({
     },
   ];
 
+  /** Take data in storage or I ask for the information with redux */
   useEffect(() => {
     const response = storage.instance.get('favProducts');
     if (response) {
@@ -59,7 +61,8 @@ const FavProduct = ({
       return;
     }
   }, []);
-  
+
+  /** Add data to storage */
   useEffect(() => {
     if (favProductReducer.data.productFav.length !== 0 && data.length === 0) {
       setData(favProductReducer.data.productFav);
@@ -69,7 +72,7 @@ const FavProduct = ({
 
   useEffect(() => {
     const dataFav = mainDataReducer.mainData.product.slice();
-    mainDataReducer.mainData.product.forEach((item, index) => {
+    mainDataReducer.mainData.product.forEach((item) => {
       data.forEach((item2) => {
         if (item.name === item2.name) {
           dataFav.splice(dataFav.indexOf(item), 1);
@@ -112,14 +115,22 @@ const FavProduct = ({
             onClick={handleClickModal}
             className="FavProduct__borderTop--addFav"
           >
-            Añadir a favorito
+            {lenguage === 'es' && 'Añadir a favorito'}
+            {lenguage === 'en' && 'Add to favorite'}
           </button>
           <button className="FavProduct__borderTop--move">
             <i class="fas fa-grip-horizontal"></i>
           </button>
         </div>
         <div className="FavProduct__table">
-          <Table title="Productos favoritos" data={data} columns={columns} />
+          <Table
+            title={
+              lenguage === 'es' ? 'Productos favoritos' : 'Favorite products'
+            }
+            data={data}
+            columns={columns}
+            lenguage={lenguage}
+          />
         </div>
       </div>
       <ModalListProduct
@@ -129,6 +140,7 @@ const FavProduct = ({
         isOpen={modal}
         data={favData}
         selectProduct={selectProduct}
+        lenguage={lenguage}
       />
     </>
   );

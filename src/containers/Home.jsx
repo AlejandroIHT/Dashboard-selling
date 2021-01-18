@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import '../styles/containers/Home.css';
 import { connect } from 'react-redux';
 import Board from '../components/Board';
@@ -10,7 +10,8 @@ const FavProduct = lazy(() => import('./FavProduct'));
 const CardChart = lazy(() => import('./CardChart'));
 const SellingInMonth = lazy(() => import('./SellingInMonth'));
 
-const Home = ({ fetchMainData, mainDataReducer }) => {
+const Home = ({ fetchMainData, mainDataReducer, lenguage }) => {
+  /** Base data request */
   useEffect(() => {
     if (mainDataReducer.mainData.product.length === 0) {
       fetchMainData();
@@ -19,10 +20,10 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
 
   const dataInBar = {
     labels: [
-      'Jan',
+      'Ene',
       'Feb',
       'Mar',
-      'Apr',
+      'Abr',
       'May',
       'Jun',
       'Jul',
@@ -34,7 +35,7 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
     ],
     datasets: [
       {
-        label: 'All Products',
+        label: 'Todos los productos',
         data: [],
         backgroundColor: ['rgba(255, 99, 132, 1)'],
       },
@@ -82,7 +83,7 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                   </div>
                 }
               >
-                <FavProduct />
+                <FavProduct lenguage={lenguage} />
               </Suspense>
             </Card>
           </Board>
@@ -97,9 +98,14 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 }
               >
                 <CardChart
-                  title="Venta por tipo de producto"
+                  title={
+                    lenguage === 'es'
+                      ? 'Venta por tipo de producto'
+                      : 'Sale by product type'
+                  }
                   typeChart="doughnut"
                   dataInDoughnut={dataInDoughnut}
+                  lenguage={lenguage}
                 />
               </Suspense>
             </Card>
@@ -115,9 +121,12 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                 }
               >
                 <CardChart
-                  title="Ventas mensuales"
+                  title={
+                    lenguage === 'es' ? 'Ventas mensuales' : 'Monthly sales'
+                  }
                   typeChart="bar"
                   dataInBar={dataInBar}
+                  lenguage={lenguage}
                 />
               </Suspense>
             </Card>
@@ -132,7 +141,7 @@ const Home = ({ fetchMainData, mainDataReducer }) => {
                   </div>
                 }
               >
-                <SellingInMonth />
+                <SellingInMonth lenguage={lenguage} />
               </Suspense>
             </Card>
           </Board>

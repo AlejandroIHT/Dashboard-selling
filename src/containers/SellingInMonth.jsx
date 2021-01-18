@@ -5,7 +5,7 @@ import Table from '../components/Table';
 import Search from '../components/Search';
 import * as salesNowActions from '../actions/salesNowActions';
 
-const SellingInMonth = ({ salesNowReducer, fetchSalesNowData }) => {
+const SellingInMonth = ({ salesNowReducer, fetchSalesNowData, lenguage }) => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
   const [searchInput, setSearchInput] = useState('');
@@ -27,6 +27,8 @@ const SellingInMonth = ({ salesNowReducer, fetchSalesNowData }) => {
       right: true,
     },
   ];
+
+  /** Sales now data request */
   useEffect(() => {
     if (salesNowReducer.data.products.length === 0) {
       fetchSalesNowData();
@@ -34,11 +36,13 @@ const SellingInMonth = ({ salesNowReducer, fetchSalesNowData }) => {
     }
   }, []);
 
+  /** Add data in search state */
   useEffect(() => {
     setData(salesNowReducer.data.products);
     if (search.length === 0) setSearch(salesNowReducer.data.products);
   }, [salesNowReducer.data.products]);
 
+  /** Search function */
   const handleChangeSearch = (e) => {
     setSearchInput(e.target.value);
     const match = data.filter((item) => {
@@ -51,7 +55,7 @@ const SellingInMonth = ({ salesNowReducer, fetchSalesNowData }) => {
     <div className="SellingInMonth">
       <div className="SellingInMonth__borderTop">
         <Search
-          placeholder="Producto..."
+          placeholder={lenguage === 'es' ? 'Producto...' : 'Product...'}
           handleChange={handleChangeSearch}
           value={searchInput}
         />
@@ -60,7 +64,13 @@ const SellingInMonth = ({ salesNowReducer, fetchSalesNowData }) => {
         </button>
       </div>
       <div className="SellingInMonth__table">
-        <Table title="Ventas mes actual" data={search} columns={columns} />
+        <Table
+          title={
+            lenguage === 'es' ? 'Ventas mes actual' : 'Current month sales'
+          }
+          data={search}
+          columns={columns}
+        />
       </div>
     </div>
   );

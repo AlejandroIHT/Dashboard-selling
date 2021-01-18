@@ -9,6 +9,7 @@ import App from './containers/App';
 import reducers from './reducers/index';
 
 const container = document.getElementById('app');
+/** Store from Redux */
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(

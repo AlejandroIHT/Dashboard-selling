@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Board = ({ children, id, className }) => {
+  /** Actions drop and drag containers */
   const drop = (e) => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData('card_id');
@@ -11,6 +12,7 @@ const Board = ({ children, id, className }) => {
     e.target.appendChild(card);
   };
 
+  /** Actions drop and drag containers */
   const dragOver = (e) => {
     e.preventDefault();
   };
